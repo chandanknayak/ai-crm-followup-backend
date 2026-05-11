@@ -1,238 +1,149 @@
-# Mini CRM Platform
+AI CRM Follow-up Automation Backend 🚀
 
-A modern, full-stack CRM solution that empowers businesses to manage customer relationships effectively. Built with React and Node.js, it features AI-powered campaign messaging, real-time analytics, and robust customer segmentation capabilities. Perfect for businesses looking to streamline their customer engagement and marketing efforts.
+A production-style backend system built to automate customer engagement workflows, AI-powered follow-ups, campaign orchestration, analytics tracking, and asynchronous processing at scale.
 
-Key Highlights:
+Designed with backend engineering principles inspired by real-world CRM and communication platforms.
 
-- 🎯 Smart customer segmentation
-- 🤖 AI-powered message generation
-- 📊 Real-time campaign analytics
-- 🔄 Asynchronous data processing
-- 🔐 Secure Google authentication
+✨ Features
+🤖 AI-Powered Follow-ups
+Generate personalized campaign messages using AI
+Automated customer engagement workflows
+Smart follow-up generation pipeline
+🎯 Dynamic Customer Segmentation
+Rule-based audience targeting
+Real-time customer filtering
+Segmentation based on customer activity
+📊 Campaign Analytics
+Track campaign delivery metrics
+Monitor engagement performance
+Real-time analytics APIs
+⚡ Async Workflow Processing
+Redis Streams for background jobs
+Queue-based architecture
+Reliable event-driven processing
+🔐 Authentication & Security
+Google OAuth2 login
+JWT-based authentication
+Request validation middleware
+📈 Observability & Monitoring
+Centralized logging
+API request tracking
+Workflow failure monitoring
+Processing latency monitoring
+🏗 System Architecture
+Frontend Client
+      ↓
+REST API Layer (Node.js + Express)
+      ↓
+Authentication & Validation Layer
+      ↓
+CRM & Campaign Services
+      ↓
+AI Message Generation Service
+      ↓
+Redis Streams / Async Workers
+      ↓
+MongoDB Database
+      ↓
+Analytics & Monitoring Services
+🧠 Tech Stack
+Backend
+Node.js
+Express.js
+Database
+MongoDB
+Mongoose ODM
+AI & Async Processing
+Google Gemini API
+Redis Streams
+Background Workers
+Security & Validation
+JWT Authentication
+Google OAuth2
+Joi Validation
+Utilities
+Swagger/OpenAPI
+Winston Logger
+dotenv
+🚀 Example APIs
+Create Campaign
+POST /api/campaign/create
+Generate AI Follow-up
+POST /api/ai/generate-message
+Customer Segmentation
+POST /api/customer/segment
+Campaign Analytics
+GET /api/campaign/analytics
+⚙️ Backend Engineering Concepts
 
-## 📚 Table of Contents
+This project focuses heavily on:
 
-- [Mini CRM Platform](#mini-crm-platform)
-  - [📚 Table of Contents](#-table-of-contents)
-  - [🚀 Features](#-features)
-  - [🏗 Architecture](#-architecture)
-  - [🧠 Tech Stack](#-tech-stack)
-  - [🌐 Live Demo](#-live-demo)
-  - [💪 Getting Started](#-getting-started)
-    - [Development](#development)
-  - [⚙ Environment Variables](#-environment-variables)
-    - [Backend (`/backend/.env`)](#backend-backendenv)
-    - [Frontend (`/frontend/.env`)](#frontend-frontendenv)
-  - [📘 API Documentation (Swagger)](#-api-documentation-swagger)
-    - [Database \& Message Queue](#database--message-queue)
-    - [Worker Process](#worker-process)
-  - [📞 Contact \& Support](#-contact--support)
-  - [📜 License](#-license)
+Distributed backend systems
+Async workflow orchestration
+Event-driven architecture
+AI-assisted automation
+Queue-based processing
+Scalable REST APIs
+Backend observability
+Fault-tolerant workflows
+Modular service architecture
+📂 Project Structure
+backend/
+ ├── controllers/
+ ├── services/
+ ├── routes/
+ ├── middlewares/
+ ├── models/
+ ├── workers/
+ ├── validators/
+ ├── config/
+ └── app.js
+📊 Scalability Considerations
 
-## 🚀 Features
+The backend architecture is designed with scalability in mind:
 
-- **Dynamic Customer Segmentation:** Build targeted segments using flexible rules based on customer metrics (total spend, visits, etc.)
-- **Campaign Management:** Create and track marketing campaigns with real-time delivery stats
-- **AI-Powered Messaging:** Generate personalized campaign messages using Google's Gemini AI
-- **Bulk Data Import:** Easy JSON-based import for customers and orders data
-- **Real-time Campaign Stats:** Track sent and failed message counts for each campaign
-- **Google Authentication:** Secure login via Google OAuth 2.0
-- **Modern Dashboard:** Intuitive interface with real-time updates and responsive design
-- **Async Processing:** Redis Streams for reliable background processing of:
-  - Customer data ingestion
-  - Order processing
-  - Message delivery and status tracking
+Async worker processing
+Queue-based workflows
+Service modularity
+Centralized logging
+Retry-safe processing
+Database optimization
 
-## 🏗 Architecture
+Planned improvements:
 
-```
-[ Frontend (Vercel) ]  <--REST-->  [ Backend API (Render) ]
-            |                              |
-            |                              |--[ Redis Streams (pub/sub) consumers ]
-      End User (browser)                   |
-      |-> Customer ingest                  |
-      |-> Order ingest                     |
-      |-> Delivery Receipt ingest          |
-                                           |
-                              [ MongoDB Database ]
-```
+Docker containerization
+Kubernetes deployment
+Kafka/RabbitMQ integration
+Distributed worker scaling
+🔍 Monitoring & Reliability
 
-Redis Streams and consumer workers (Node.js) are used for background task processing and message queueing.
+The system tracks:
 
-## 🧠 Tech Stack
+failed campaign deliveries
+AI processing failures
+API latency
+async job failures
+workflow bottlenecks
 
-**Frontend:**
+This improves operational visibility and debugging efficiency.
 
-- React 19 with Vite
-- React Router v7 for navigation
-- Tailwind CSS for styling
-- Google OAuth integration (@react-oauth/google)
-- JWT handling with jwt-decode
-- React Icons for UI elements
-- Axios for API calls
+💡 What I Learned
 
-**Backend:**
+While building this project, I gained hands-on experience with:
 
-- Node.js with Express
-- MongoDB with Mongoose ODM
-- Redis Streams for async processing
-- JWT for authentication
-- Google OAuth2 integration
-- Google Gemini AI for message generation
-- Joi for request validation
-- Swagger/OpenAPI for API documentation
-- CORS support
-- Environment configuration with dotenv
+scalable backend architecture
+modular API development
+async processing systems
+AI API integrations
+queue-based workflows
+production-oriented backend engineering
+🔮 Future Improvements
+WhatsApp workflow integration
+AI agent orchestration
+Real-time dashboards
+Multi-tenant CRM architecture
+Advanced observability pipelines
+Distributed microservices support
+📌 Status
 
-**Development Tools:**
-
-- ESLint for code quality
-- Nodemon for development
-- Vite for frontend builds
-- Concurrently for running multiple processes
-
-## 🌐 Live Demo
-
-- **Frontend:** [https://mini-crm-platform-xeno.vercel.app](https://mini-crm-platform-xeno.vercel.app)
-- **Backend API:** [https://mini-crm-plaform-qhsk.onrender.com](https://mini-crm-plaform-qhsk.onrender.com)
-- **Swagger Docs:** [https://mini-crm-plaform-qhsk.onrender.com/api-docs](https://mini-crm-plaform-qhsk.onrender.com/api-docs)
-
-## 💪 Getting Started
-
-### Development
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/bansal-harsh-2504/Mini-CRM-Platform.git
-   cd Mini-CRM-Platform
-   ```
-
-2. **Configure environment variables**
-
-   - Copy `.env.sample` to `.env` in both `/backend` and `/frontend` and update values (see below).
-
-3. **Build and start all services**
-
-   ```bash
-   cd ./frontend && npm run dev
-   cd ./backend && npm start
-   ```
-
-   - Frontend: [http://localhost:3000](http://localhost:3000)
-   - Backend: [http://localhost:8000](http://localhost:8000)
-   - MongoDB: Internal (see .env)
-   - Redis: Internal for event and task queue
-
-4. **Start background consumers** (in a separate terminal/window):
-
-   ```bash
-   # In /backend:
-   node ./services/streamWorker.js
-   ```
-
-   Or use `npm run worker`. These are required for async creation and message delivery handling.
-
-## ⚙ Environment Variables
-
-### Backend (`/backend/.env`)
-
-```
-ENV=development
-PORT=8000
-MONGO_URI=<your-mongodb-uri>
-JWT_SECRET=<your-jwt-secret>
-GEMINI_API_KEY=<your-google-gemini-api-key>
-GOOGLE_CLIENT_ID=<your-google-oauth-client-id>
-REDIS_URL=<your-redis-url>
-BASE_URL_FRONTEND=http://localhost:5173
-BASE_URL_BACKEND=http://localhost:8000
-```
-
-### Frontend (`/frontend/.env`)
-
-```
-VITE_BASE_URL_BACKEND=http://localhost:8000/api
-VITE_GOOGLE_CLIENT_ID=<your-google-oauth-client-id>
-```
-
-Update URLs as needed for production.
-
-## 📘 API Documentation (Swagger)
-
-Our API is fully documented using Swagger specification, available at `/api-docs` endpoint. The documentation includes:
-
-**Core Endpoints:**
-
-- **Authentication:** Google OAuth2.0 integration
-- **Customers:** Async customer data ingestion
-- **Orders:** Async order processing
-- **Campaigns:**
-  - Campaign creation with segmentation rules
-  - Campaign history and stats
-  - Audience preview calculations
-- **AI Integration:** Message suggestions via Gemini API
-- **Vendor Integration:** Message delivery simulation and status tracking
-
-**Authentication:**
-
-- All endpoints (except auth) require JWT Bearer token
-- Tokens are obtained through Google OAuth2.0 flow
-- Token validation and refresh mechanisms included
-
-**Response Format:**
-
-```json
-{
-  "success": boolean,
-  "data": {
-    // Response data specific to each endpoint
-  },
-  "message": "Optional status message"
-}
-```
-
-### Database & Message Queue
-
-- **MongoDB:** Using MongoDB Atlas cloud database
-
-  - Secure, scalable document storage
-  - No self-hosting required
-  - Connection via MongoDB Atlas URI in environment variables
-
-- **Redis:** Required for async processing
-  - Can use local Redis for development
-  - For production, using Redis Cloud
-  - Connection via Redis URL in environment variables
-
-### Worker Process
-
-The application uses a worker process for async operations:
-
-```bash
-# In /backend
-# Start both API and worker
-npm start
-
-# Start worker separately (if needed)
-npm run worker
-```
-
-The worker process (running on Render) handles:
-
-- Customer data ingestion
-- Order processing
-- Campaign message delivery
-- Status updates
-
-## 📞 Contact & Support
-
-- Developed by **Harsh Bansal**
-- 📬 Email: [harshbansa.2032@gmail.com](mailto:harshbansal.2032@gmail.com)
-- 💼 [Portfolio](https://harshbansal.netlify.app)
-- 👥 [GitHub](https://github.com/bansal-harsh-2504)
-- 🔗 [LinkedIn](https://linkedin.com/in/bansal-harsh1)
-
-## 📜 License
-
-MIT
+Actively improving backend scalability, AI workflow orchestration, and distributed processing infrastructure.
